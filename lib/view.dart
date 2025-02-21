@@ -41,7 +41,11 @@ class _ContactsScreenState extends State<ContactsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contacts Screen')),
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        title: const Text('Contacts Screen'),
+        backgroundColor: const Color.fromARGB(255, 112, 179, 235),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -51,23 +55,30 @@ class _ContactsScreenState extends State<ContactsScreen> {
               hintText: 'Enter Your Name Here',
               icon: Icons.edit,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(
               controller: phoneController,
               hintText: 'Enter Your Phone Number',
               icon: Icons.phone,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: addContact,
-                  child: Text('Add'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(
+                        255, 112, 179, 235), // Change button color here
+                  ),
+                  child: const Text(
+                    'Add',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: contacts.length,
